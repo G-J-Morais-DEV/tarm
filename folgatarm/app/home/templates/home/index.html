@@ -1,0 +1,413 @@
+{% extends "base.html" %} {% load static %} {% block main %}
+<!-- Dayoff table -->
+<div class="table-responsive">
+    <table class="table table-hover table-bordered table-sm" id="tabela1">
+        <caption>Escala Tarms</caption>
+        <thead class="thead-dark">
+            <tr>
+
+                <th scope="row" rowspan="3" class="text-center pb-5">Nomes</th>
+                <th scope="col" colspan="8" class="text-center"><span id="week"></span>: <span id="data"></span></th>
+                <th scope="col" colspan="16" class="text-center">
+                    <select class="browser-default custom-select" id="selected_month">  
+            <option value="1">Janeiro</option>
+            <option value="2">Fevereiro</option>
+            <option value="3">Março</option>
+            <option value="4">Abril</option>
+            <option value="5">Maio</option>
+            <option value="6">Junho</option>
+            <option value="7">Julho</option>
+            <option value="8">Agosto</option>
+            <option value="9">Setembro</option>
+            <option value="10">Outubro</option>
+            <option value="11">Novembro</option>
+            <option value="12">Dezembro</option>
+          </select>
+                </th>
+                <th scope="col" colspan="7" class="text-center"><span id="hora"></span>
+                </th>
+            </tr>
+            <tr class="table-light days_of_month table-bordered"></tr>
+            <tr class="table-light days_of_week table-bordered"></tr>
+        </thead>
+        <tbody>
+            <tr class="bg-success">
+                <th scope="row">Jonathan J.S. Freitas</th>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+            </tr>
+            <tr class="bg-success">
+                <th scope="row">Julia Mª de A. Ferreira</th>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+            </tr>
+            <tr class="bg-warning">
+                <th scope="row">Dayelle de O. Fernandes</th>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+            </tr>
+            <tr class="bg-warning">
+                <th scope="row">Geovane S. Dias</th>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+            </tr>
+            <tr class="bg-warning">
+                <th scope="row">João Victor S. Abreu</th>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+                <td>B</td>
+            </tr>
+            <tr class="bg-info">
+                <th scope="row">Jacqueline B. Ferreira</th>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+            </tr>
+            <tr class="bg-info">
+                <th scope="row">Geovanna de F. M. Lima</th>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+            </tr>
+            <tr class="bg-info">
+                <th scope="row">Rayane S. Miranda</th>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+                <td>C</td>
+            </tr>
+            <tr class="bg-danger">
+                <th scope="row">Thiago Stefani Liguori</th>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+            </tr>
+            <tr class="bg-danger">
+                <th scope="row">Monique a Pissolati</th>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+            </tr>
+            <tr class="bg-danger">
+                <th scope="row">Leonardo G. da Silva</th>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+                <td>D</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}

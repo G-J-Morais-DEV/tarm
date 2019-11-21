@@ -1,0 +1,118 @@
+{% extends "base.html"%} {% load static %} {% block nav %}{% endblock %} {% block main %}
+<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+
+    <!-- Navbar brand -->
+    <a class="navbar-brand" href="#">Coordenador</a>
+
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="basicExampleNav">
+
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'cad_func'%}">Cadastrar funcionário
+                    <span class="sr-only">(current)</span>
+                  </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" disabled>Funcionários Cadastrados</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'escala_func' %}">Escala Atual</a>
+            </li>
+
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+
+        </ul>
+        <!-- Links -->
+
+        <form class="form-inline">
+            <div class="md-form my-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            </div>
+        </form>
+    </div>
+    <!-- Collapsible content -->
+
+</nav>
+
+<div class="container mt-5">
+    <!--Inicio da tabela de Produtos-->
+    <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead class="thead-dark">
+            <tr>
+                <th>Editar
+                </th>
+                <th class="th-sm">Nome
+                </th>
+                <th class="th-sm">Sobrenome
+                </th>
+                <th class="th-sm">Plantão Padrão
+                </th>
+                <th class="th-sm">Folguista
+                </th>
+                <th class="th-sm">Feirista
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for funcionario in funcionarios %}
+            <tr>
+                <td>
+                    <a href="{% url 'update_func' funcionario.id %}"><i class="fas fa-edit"></i></a>
+
+                    <a href="{% url 'apagar_func' funcionario.nome %}" class="confirm" data-toggle="confirmation" data-title="Deseja Deletar Produto?"><i class="fa fa-trash ml-3" aria-hidden="true"></i></a>
+                </td>
+                <td> {{funcionario.nome}}</td>
+                <td>{{funcionario.sobrenome}}</td>
+                <td>{{funcionario.plantaoPadrao}}</td>
+                {% if funcionario.folguista == False %}
+                <td>Não</td>
+                {% else%}
+                <td>Sim</td>
+                {% endif %} {% if funcionario.feirista == False %}
+                <td>Não</td>
+                {% else%}
+                <td>Sim</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot class="thead-dark">
+            <tr>
+                <th>Editar
+                </th>
+                <th>Nome
+                </th>
+                <th>Sobrenome
+                </th>
+                <th>Plantão Padrão
+                </th>
+                <th>Folguista
+                </th>
+                <th>Feirista
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+
+
+</div>
+
+
+
+{% endblock%}

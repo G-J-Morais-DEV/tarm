@@ -1,0 +1,88 @@
+{% extends "base.html" %} {% load static %} {% block main %}
+<!-- Dayoff table -->
+<div class="table-responsive">
+    <table class="table table-hover table-bordered table-sm" id="tabela1">
+        <caption>Escala Tarms</caption>
+        <thead class="thead-dark">
+            <tr>
+
+                <th scope="row" rowspan="3" class="text-center pb-5">Nomes</th>
+                <th scope="col" colspan="8" class="text-center"><span id="week" name="week"></span>: <span id="data"></span></th>
+                <th scope="col" colspan="16" class="text-center">
+                    <select class="browser-default custom-select" id="selected_month">  
+            <option value="1">Janeiro</option>
+            <option value="2">Fevereiro</option>
+            <option value="3">Março</option>
+            <option value="4">Abril</option>
+            <option value="5">Maio</option>
+            <option value="6">Junho</option>
+            <option value="7">Julho</option>
+            <option value="8">Agosto</option>
+            <option value="9">Setembro</option>
+            <option value="10">Outubro</option>
+            <option value="11">Novembro</option>
+            <option value="12">Dezembro</option>
+          </select>
+                </th>
+                <th scope="col" colspan="7" class="text-center"><span id="hora"></span>
+                </th>
+            </tr>
+            <tr class="table-light days_of_month table-bordered">
+                {% for days in completeMonth %}
+                <td>{{ days }}</td>
+                {% endfor %}
+            </tr>
+            <tr class="table-light days_of_week table-bordered">
+                {% for weekDays in completeWeek%}
+                <td>{{weekDays}} </td>
+
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for funcionario in funcionarios %} {% for plantao in funcionario.plantaoPadrao%} {% if plantao == 'Mad' %}
+            <tr class="bg-success" id="mad">
+                <th scope="row"><span>{{funcionario.nome}}</span> <span>{{funcionario.sobrenome}}</span></th>
+                {% for days in day_off_Mad %} {% if days == "A"%}
+                <td>A</td>
+                {%else%}
+                <td class="bg-primary">E</td>
+                {%endif%} {% endfor %}
+            </tr>
+            {% elif plantao == 'Man' %}
+            <tr class="bg-warning">
+                <th scope="row"><span>{{funcionario.nome}}</span> <span>{{funcionario.sobrenome}}</span></th>
+                {% for days in day_off_Man %} {% if days == "B"%}
+                <td>B</td>
+                {%else%}
+                <td class="bg-primary">E</td>
+                {%endif%} {% endfor %}
+            </tr>
+
+            {% elif plantao == 'Tar' %}
+            <tr class="bg-info">
+                <th scope="row"><span>{{funcionario.nome}}</span> <span>{{funcionario.sobrenome}}</span></th>
+                {% for days in day_off_Tar %} {% if days == "C"%}
+                <td>C</td>
+                {%else%}
+                <td class="bg-primary">E</td>
+                {%endif%} {% endfor %}
+            </tr>
+            {% elif plantao == 'Noi' %}
+            <tr class="bg-danger">
+                <th scope="row"><span>{{funcionario.nome}}</span> <span>{{funcionario.sobrenome}}</span></th>
+                {% for days in day_off_Noi %} {% if days == "D"%}
+                <td>D</td>
+                {%else%}
+                <td class="bg-primary">E</td>
+                {%endif%} {% endfor %}
+            </tr>
+            {% endif %} {% endfor %} {% endfor%}
+        </tbody>
+    </table>
+    <span>{{ daysTotal }}</span>
+
+</div>
+
+{% endblock %}

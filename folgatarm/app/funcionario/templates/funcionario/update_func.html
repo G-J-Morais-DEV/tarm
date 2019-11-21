@@ -1,0 +1,110 @@
+{% extends "base.html"%} {% load static %} {% block nav %}{% endblock %}{% block main %}
+<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+
+    <!-- Navbar brand -->
+    <a class="navbar-brand" href="#">Coordenador</a>
+
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="basicExampleNav">
+
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#" disabled>Cadastrar funcionário
+                    <span class="sr-only">(current)</span>
+                  </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'listar_func'%}">Funcionários Cadastrados</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'escala_func' %}">Escala Atual</a>
+            </li>
+
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+
+        </ul>
+        <!-- Links -->
+
+        <form class="form-inline">
+            <div class="md-form my-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            </div>
+        </form>
+    </div>
+    <!-- Collapsible content -->
+
+</nav>
+
+
+
+
+<div class="container w-75 mt-5">
+    <!-- Material form register -->
+    <div class="card">
+        <h5 class="card-header info-color white-text text-center py-4">
+            <strong>Atualizar Funcionário</strong>
+        </h5>
+        <!--Card content-->
+        <div class="card-body px-lg-5 pt-0">
+            <!-- Form -->
+            <form class="text-center" method="POST" style="color: #757575;" action="{% url 'update_func' funcionario.id %}">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="col">
+                        <!-- First name -->
+                        <div class="md-form align-icon">
+                            <input type="text" id="materialRegisterFormFirstName" class="form-control pb-2" name="nome" value="{{funcionario.nome}}" required>
+                            <label for="materialRegisterFormFirstName">Nome</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <!-- Last name -->
+                        <div class="md-form">
+                            <input type="text" id="materialRegisterFormLastName" value="{{funcionario.sobrenome}}" class="form-control" name="sobrenome" required>
+                            <label for="materialRegisterFormLastName">Sobrenome</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- Plantão -->
+                <select class="browser-default custom-select" name="plantaoPadrao">
+                        <option selected disabled></option>
+                        <option value="NDA">Sem plantão definido</option>
+                        <option value="Mad">Madrugada</option>
+                        <option value="Man">Manhã</option>
+                        <option value="Tar">Tarde</option>
+                        <option value="Noi">Noite</option>
+                        
+                    </select>
+                <!-- Folguista / Feirista  -->
+                <div class="custom-control custom-radio custom-control-inline mt-4">
+                    <input type="radio" class="custom-control-input" id="defaultInline1" name="folguista">
+                    <label class="custom-control-label" for="defaultInline1">Folguista</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline mt-4">
+                    <input type="radio" class="custom-control-input" id="defaultInline2" name="feirista">
+                    <label class="custom-control-label" for="defaultInline2">Feirista</label>
+                </div>
+                <!-- Sign up button -->
+                <hr>
+                <div class="md-form">
+                    <button class="btn btn-info btn-rounded mt-2 waves-effect z-depth-0" type="submit">Atualizar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock%}
